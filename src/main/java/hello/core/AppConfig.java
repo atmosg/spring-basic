@@ -15,8 +15,9 @@ import hello.core.order.OrderServiceImpl;
 @Configuration
 public class AppConfig {
   
-  @Bean
+  @Bean()
   public MemberService memberService() {
+    System.out.println("AppConfig.memberService 호출");
     return new MemberServiceImpl(
       memberRepository()
     );
@@ -24,6 +25,7 @@ public class AppConfig {
 
   @Bean
   public OrderService orderService() {
+    System.out.println("AppConfig.orderService 호출");
     return new OrderServiceImpl(
       memberRepository(),
       discountPolicy()
@@ -32,6 +34,7 @@ public class AppConfig {
 
   @Bean
   public MemberRepository memberRepository() {
+    System.out.println("Appconfig.memberRepository 호출");
     return new MemoryMemberRepository();
   }
 
